@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Flower;
+  src: url(/fonts/IndieFlower-Regular.ttf);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: -apple-system,PingFang TC,微軟正黑體,Microsoft JhengHei,Helvetica Neue,Arial,sans-serif;
+}
+
+wired-toggle {
+  --wired-toggle-on-color: #C7EDE6;
+  color: black;
+}
