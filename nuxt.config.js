@@ -6,6 +6,11 @@ export default {
     vapidPublicKey: config.get('vapid.publicKey')
   },
 
+  server: {
+    host: config.get('host'),
+    port: config.get('port')
+  },
+
   mode: 'spa',
   /*
   ** Headers of the page

@@ -3,6 +3,10 @@ export default {
   
   backendDomain: 'http://139.162.56.246:8000',
 
+  host: '0.0.0.0',
+
+  port: 3000,
+
   socket: {
     path: '/socket'
   },
