@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "dev:sw": "webpack --config sw.webpack.config.js --watch",
-    "build": "nuxt build",
+    "build": "webpack --config sw.webpack.config.js && nuxt build",
     "start": "nuxt start",
     "deploy": "yarn build && pm2 delete lyme-nuxt && pm2 start npm --name 'lyme-nuxt' -- start",
     "generate": "nuxt generate"
