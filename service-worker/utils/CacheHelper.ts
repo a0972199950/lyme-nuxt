@@ -1,7 +1,9 @@
+import config from 'config'
 import LogHelper from './LogHelper'
 import { uuid } from './utils'
 
 const debug = true
+const frontendDomain = 'http://localhost:3000'
 const logHelper = new LogHelper('Service Worker', debug)
 
 class CacheHelper {
@@ -13,18 +15,17 @@ class CacheHelper {
     return [this.STATIC_CACHE_KEY, this.DYNAMIC_CACHE_KEY]
   }
 
-  private staticPaths = [
-    // 'http://localhost:3000/',
-    // 'http://localhost:3000/_nuxt/commons.app.js',
-    // 'http://localhost:3000/_nuxt/vendors.app.js',
-    // 'http://localhost:3000/_nuxt/app.js',
-    // 'http://localhost:3000/_nuxt/pages_index.js',
-    // 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap',
-    // 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
-    // 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css',
-    // 'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-    // 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js',
-    // 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'
+  private staticPaths: string[] = [
+    `${frontendDomain}/_nuxt/commons.app.js`,
+    `${frontendDomain}/_nuxt/vendors.app.js`,
+    `${frontendDomain}/_nuxt/app.js`,
+    `${frontendDomain}/_nuxt/pages_index.js`,
+    `${frontendDomain}/icon-192.png`,
+    `${frontendDomain}/fonts/IndieFlower-Regular.ttf`,
+    `${frontendDomain}/favicon.ico`,
+    'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap',
+    'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
+    'https://unpkg.com/wired-elements@2.0.5/lib/wired-elements-bundled.js'
   ]
 
   private excludePaths = [

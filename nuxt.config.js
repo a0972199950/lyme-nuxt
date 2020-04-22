@@ -2,6 +2,10 @@ import colors from 'vuetify/es5/util/colors'
 import config from 'config'
 
 export default {
+  env: {
+    vapidPublicKey: config.get('vapid.publicKey')
+  },
+
   mode: 'spa',
   /*
   ** Headers of the page
@@ -37,7 +41,8 @@ export default {
   */
   plugins: [
     '~/plugins/font-awesome',
-    // '~/plugins/registerSW'
+    "~/plugins/sweetAlert",
+    '~/plugins/registerSW'
   ],
   ignoredElements: [
     // 告訴Vue將其視為普通HTML Element, 而非Vue Component
