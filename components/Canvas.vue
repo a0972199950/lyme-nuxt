@@ -102,7 +102,7 @@ export default class PCanvas extends Vue {
         formData.append('image', blob)
 
         try {
-          const { url, error, log } = await this.$axios.$post('/image', formData)
+          const { url, error, log } = await this.$axios.$post('/api/image', formData)
           if(error) {
             throw new Error(log)
           }

@@ -45,7 +45,7 @@ export default class CSetting extends Vue {
     const auth = sub.toJSON().keys.auth
 
     try {
-      const { sub: subData, error, message } = await this.$axios.$get(`/subs/${auth}`)
+      const { sub: subData, error, message } = await this.$axios.$get(`/api/subs/${auth}`)
       if(error) {
         throw new Error(message)
       }
@@ -82,7 +82,7 @@ export default class CSetting extends Vue {
           applicationServerKey: process.env.vapidPublicKey
         })
         
-        const { error, message } = await this.$axios.$post('/subs', { sub })
+        const { error, message } = await this.$axios.$post('/api/subs', { sub })
         if(error) {
           throw new Error(message)
         }
@@ -106,7 +106,7 @@ export default class CSetting extends Vue {
       })
       const auth = sub.toJSON().keys.auth
 
-      const { error, message } = await this.$axios.$delete(`/subs/${auth}`)
+      const { error, message } = await this.$axios.$delete(`/api/subs/${auth}`)
       if(error) {
         throw new Error(message)
       }

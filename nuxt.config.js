@@ -73,8 +73,13 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: config.get('backendDomain'),
-    browserBaseURL: config.get('backendDomain'),
+    // baseURL: config.get('backendDomain'),
+    browserBaseURL: config.get('frontendDomain'),
+    proxy: true
+  },
+
+  proxy: {
+    '/api': { target: config.get('backendDomain'), pathRewrite: { '^/api': '' } }
   },
   /*
   ** vuetify module configuration

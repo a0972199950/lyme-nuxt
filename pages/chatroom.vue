@@ -134,7 +134,7 @@ export default class PChatroom extends Vue {
   }
 
   async fetchOldMsgs() {
-    let { msgs: oldMsgs } = await this.$axios.$get('/msgs', { params: {
+    let { msgs: oldMsgs } = await this.$axios.$get('/api/msgs', { params: {
       timestamp: this.msgs[0] ? this.msgs[0].createdAt - 1 : new Date().valueOf(),
       limit: this.loadMsgAmount
     }})
