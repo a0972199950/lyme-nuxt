@@ -1,6 +1,7 @@
 import CacheHelper from './utils/CacheHelper'
 import IDBHelper from './utils/IDBHelper'
 import NotificationHelper from './utils/NotificationHelper'
+import LogHelper from './utils/LogHelper'
 
 declare var self: ServiceWorkerGlobalScope
 
@@ -8,6 +9,9 @@ const useCache = false
 const cacheHelper = new CacheHelper()
 const idbHelper = new IDBHelper()
 const notificationHelper = new NotificationHelper()
+const logHelper = new LogHelper('Service Worker')
+
+logHelper.log('Service worker 註冊完畢')
 
 self.addEventListener('install', (e: ExtendableEvent) => {
   if(!useCache) {

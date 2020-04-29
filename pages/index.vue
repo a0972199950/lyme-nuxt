@@ -91,8 +91,8 @@ export default class PIndex extends Vue {
   username: string = null
 
   get openAsPWA() {
-    return true
-    // return matchMedia('(display-mode: standalone)').matches
+    // return true
+    return matchMedia('(display-mode: standalone)').matches
   }
 
   @Watch('modal.show')
