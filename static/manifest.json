@@ -43,5 +43,5 @@
   "orientation": "portrait-primary",
   "prefer_related_applications": false, "//_comment7": "chrome自動提示安裝必須條件: 需為false或不提供prefer_related_applications",
   "scope": ".",
-  "start_url": "/", "//_comment8": "chrome自動提示安裝必須條件: 提供start_url"
+  "start_url": "/entry", "//_comment8": "chrome自動提示安裝必須條件: 提供start_url"
 }
