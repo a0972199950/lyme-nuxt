@@ -1,7 +1,6 @@
-
 import { Middleware, Context } from '@nuxt/types'
 import { Store } from 'vuex'
-import { IState } from '~/store/index'
+import { IState } from '../store/index'
 
 const chackUserProfileExist: Middleware = (context: Context) => {
   const { redirect, app, route } = context
