@@ -1,0 +1,15 @@
+.alert {
+  @at-root #{&}__container {
+    position: fixed;
+    width: 100%;
+    transition: top .3s ease;
+    padding: 0 2rem;
+    z-index: 190;
+  }
+
+  @at-root #{&}__alert {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: -apple-system,PingFang TC,微軟正黑體,Microsoft JhengHei,Helvetica Neue,Arial,sans-serif;
+  }
+}

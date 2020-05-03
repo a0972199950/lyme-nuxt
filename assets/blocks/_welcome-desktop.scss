@@ -1,0 +1,16 @@
+.welcome-desktop {
+  padding: 0 1rem;
+
+  @at-root #{&}__desc {
+    color: white;
+    text-shadow:
+      1px 1px 0 $color-gray,
+      -1px -1px 0 $color-gray,  
+      1px -1px 0 $color-gray,
+      -1px 1px 0 $color-gray,
+      1px 1px 0 $color-gray;
+    font-family: Flower;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
