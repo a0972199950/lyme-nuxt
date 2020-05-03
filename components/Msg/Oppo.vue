@@ -2,7 +2,7 @@
   <div class="chat-oppo">
     <div
       class="chat-oppo__avatar"
-      :style="{ 'background-image': `url('/icon-128.png')` }"
+      :style="{ 'background-image': `url(${userAvatar})` }"
     />
   
     <div class="chat-oppo__info">
@@ -30,6 +30,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 @Component
 export default class CMsgOpponent extends Vue {
   @Prop({ type: String, default: '匿名' }) username!: string
+  @Prop({ type: String, default: '/default-avatar.jpg' }) userAvatar!: string
   @Prop({ type: String }) msg: string
   @Prop({ type: Number }) createdAt: number
   @Prop({ type: String, default: 'TEXT' }) format: 'TEXT' | 'IMAGE'

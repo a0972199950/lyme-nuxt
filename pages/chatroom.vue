@@ -77,6 +77,7 @@ interface IMsgPayload {
   format: 'TEXT' | 'IMAGE'
   msg: string
   username: string
+  userAvatar: string
 }
 
 interface IMsgDocument extends IMsgPayload {
@@ -89,6 +90,8 @@ interface IMsg extends IMsgDocument {
 }
 
 @Component({
+  middleware: 'checkUserProfileExist',
+
   components: {
     MsgOppo: () => import('~/components/Msg/Oppo.vue'),
     MsgSelf: () => import('~/components/Msg/Self.vue'),
@@ -134,7 +137,7 @@ export default class PChatroom extends Vue {
   }
 
   async fetchOldMsgs() {
-    let { msgs: oldMsgs } = await this.$axios.$get('/api/msgs', { params: {
+    let { msgs: oldMsgs } = await this.$axios.$get('/msgs', { params: {
       timestamp: this.msgs[0] ? this.msgs[0].createdAt - 1 : new Date().valueOf(),
       limit: this.loadMsgAmount
     }})
@@ -162,7 +165,11 @@ export default class PChatroom extends Vue {
 
   sendMsg(format: 'TEXT' | 'IMAGE', msg: string) {
     const { newMsg } = this
-    const msgPayload: IMsgPayload = { username: this.$store.state.username, msg, format }
+    const msgPayload: IMsgPayload = {
+      username: this.$store.state.username,
+      userAvatar: this.$store.state.userAvatar,
+      msg, format 
+    }
 
     socketHelper.emit('new-msg', msgPayload)
 

@@ -9,7 +9,8 @@ interface INotificationPayload {
 
 declare var self: ServiceWorkerGlobalScope
 
-const logHelper = new LogHelper('Notification')
+const debug = false
+const logHelper = new LogHelper('Notification', debug)
 
 class NotificationHelper {
   public show(payload: INotificationPayload) {

@@ -2,8 +2,9 @@ import config from 'config'
 import LogHelper from './LogHelper'
 import { uuid } from './utils'
 
-const debug = true
 const frontendDomain = 'http://localhost:3000'
+
+const debug = true
 const logHelper = new LogHelper('Service Worker', debug)
 
 class CacheHelper {

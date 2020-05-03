@@ -18,7 +18,7 @@
 
     <div
       class="chat-self__avatar"
-      :style="{ 'background-image': `url('/icon-128.png')` }"
+      :style="{ 'background-image': `url(${userAvatar})` }"
     />
   </div>
 </template>
@@ -29,6 +29,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 @Component
 export default class CMsgSelf extends Vue {
   @Prop({ type: String }) msg!: string
+  @Prop({ type: String, default: '/default-avatar.jpg' }) userAvatar!: string
   @Prop({ type: Number }) createdAt: number
   @Prop({ type: String, default: 'TEXT' }) format: 'TEXT' | 'IMAGE'
 }
