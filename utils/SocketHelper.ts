@@ -1,13 +1,17 @@
 import io from 'socket.io-client'
-// import config from 'config'
-
-const backendDomain = 'http://localhost:8000'
-const socketPath = '/socket'
 
 class SocketHelper {
   public socket!: SocketIOClient.Socket
+  private backendDomain: string
+  private socketPath: string = '/socket'
+
+  constructor(backendDomain: string) {
+    this.backendDomain = backendDomain
+  }
 
   public connect() {
+    const { backendDomain, socketPath } = this
+
     const socket = io(backendDomain, {
       path: socketPath
     })
@@ -24,4 +28,4 @@ class SocketHelper {
   }
 }
 
-export default new SocketHelper()
+export default SocketHelper

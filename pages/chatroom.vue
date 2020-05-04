@@ -71,7 +71,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'nuxt-property-decorator'
-import socketHelper from '~/utils/SocketHelper'
+import SocketHelper from '~/utils/SocketHelper'
 
 interface IMsgPayload {
   format: 'TEXT' | 'IMAGE'
@@ -88,6 +88,9 @@ interface IMsgDocument extends IMsgPayload {
 interface IMsg extends IMsgDocument {
   type: 'OPPO' | 'SELF'
 }
+
+console.log('後端網域', process.env.backendDomain)
+const socketHelper = new SocketHelper(process.env.backendDomain)
 
 @Component({
   middleware: 'checkUserProfileExist',

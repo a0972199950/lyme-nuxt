@@ -5,6 +5,7 @@ export default {
   env: {
     vapidPublicKey: config.get('vapid.publicKey'),
     frontendDomain: config.get('frontendDomain'),
+    backendDomain: config.get('backendDomain')
   },
 
   server: {
