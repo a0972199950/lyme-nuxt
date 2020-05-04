@@ -25,7 +25,7 @@ class NotificationHelper {
         { action: 'confirm', title: '打開看看' },
         { action: 'cancel', title: '取消' }
       ],
-      tag: 'test'
+      tag: 'lyme'
     })
 
     logHelper

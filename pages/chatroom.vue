@@ -22,7 +22,9 @@
     </div>
 
     <div class="chatroom__header">
+      <font-awesome-icon :icon="['fa', 'chevron-left']" @click="$router.push('/entry')" />
       <h1 class="chatroom__name">Chatroom({{ userAmount }})</h1>
+      <span></span>
     </div>
 
     <div ref="chatroomBody" class="chatroom__body">
@@ -49,7 +51,7 @@
       />
     </div>
 
-    <div class="chatroom__control">
+    <div v-if="mode === 'FULL_CONTROL'" class="chatroom__control">
       <font-awesome-icon :icon="['fas', 'camera']" />
       <font-awesome-icon
         :icon="['fas', 'palette']"
@@ -65,6 +67,15 @@
       />
 
       <font-awesome-icon :icon="['fas', 'paper-plane']" @click="sendMsg('TEXT', newMsg)" />
+    </div>
+
+    <div v-if="mode === 'READ_ONLY'" class="chatroom__control">
+      <wired-button
+        class="animated infinite swing"
+        @click="$router.push('/entry')"
+      >
+        加入討論
+      </wired-button>
     </div>
   </section>
 </template>
@@ -89,12 +100,9 @@ interface IMsg extends IMsgDocument {
   type: 'OPPO' | 'SELF'
 }
 
-console.log('後端網域', process.env.backendDomain)
 const socketHelper = new SocketHelper(process.env.backendDomain)
 
 @Component({
-  middleware: 'checkUserProfileExist',
-
   components: {
     MsgOppo: () => import('~/components/Msg/Oppo.vue'),
     MsgSelf: () => import('~/components/Msg/Self.vue'),
@@ -108,6 +116,16 @@ export default class PChatroom extends Vue {
   loading = false
   userAmount = 0
   canvasOpen = false
+
+  get mode() {
+    const { username, userAvatar } = this.$store.state
+
+    if(!username || !userAvatar) {
+      return 'READ_ONLY'
+    } else {
+      return 'FULL_CONTROL'
+    }
+  }
 
   @Watch('msgs')
   onMsgsChange() {

@@ -41,13 +41,13 @@
     height: 2.5rem;
     background: rgb(167, 235, 222);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0 3px 3px #00000083;
     z-index: 100;
-  }
+    font-size: 1.2rem;
+    padding: 0 1rem;
 
-  @at-root #{&}__name {
     color: white;
     text-shadow:
       2px 2px 0 $color-gray,
@@ -58,10 +58,12 @@
     font-family: Flower;
   }
 
+
   @at-root #{&}__body {
     flex-grow: 1;
     flex-shrink: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     background-image: url("/chatroom-bg.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -97,7 +99,7 @@
 
   @at-root #{&}__control {
     padding: 0 .5rem;
-    height: 3rem;
+    height: 4.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,6 +112,11 @@
 
     >wired-input {
       flex-grow: 1;
+    }
+
+    >wired-button {
+      font-size: 1.2rem;
+      font-family: Flower;
     }
   }
 }

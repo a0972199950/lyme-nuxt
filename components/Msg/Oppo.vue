@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-oppo">
+  <div class="chat-oppo animated fadeInLeft faster">
     <div
       class="chat-oppo__avatar"
       :style="{ 'background-image': `url(${userAvatar})` }"

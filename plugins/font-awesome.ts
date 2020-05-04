@@ -7,7 +7,8 @@ import {
   faPaperPlane,
   faCamera,
   faPalette,
-  faBars
+  faBars,
+  faChevronLeft
 } from '@fortawesome/free-solid-svg-icons'
 
 import { 
@@ -20,7 +21,8 @@ library.add(
   faCamera,
   faPalette,
   faBars,
-  faQuestionCircle
+  faQuestionCircle,
+  faChevronLeft
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

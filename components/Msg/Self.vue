@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-self">
+  <div class="chat-self animated fadeInRight faster">
     <div class="chat-self__info">
       <div class="speech-bubble-self">
         <wired-image
