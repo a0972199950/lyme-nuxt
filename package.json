@@ -25,7 +25,7 @@
     "@types/socket.io-client": "^1.4.32",
     "config": "^3.3.1",
     "idb": "^5.0.2",
-    "npm": "^6.14.4",
+    "npm": "^6.14.6",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^2.5.1",
     "qrcode": "^1.4.4",
